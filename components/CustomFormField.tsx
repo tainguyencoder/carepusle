@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-import { E164Number } from "libphonenumber-js/core";
+import { E164Number } from 'libphonenumber-js/core';
 import Image from 'next/image';
 import ReactDatePicker from 'react-datepicker';
 import { Control } from 'react-hook-form';
 import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css'
+import 'react-phone-number-input/style.css';
 
 import { Checkbox } from './ui/checkbox';
 import {
@@ -52,11 +51,11 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
         <div className="flex rounded-md border border-dark-500 bg-dark-400">
           {props.iconSrc && (
             <Image
+              width={0}
+              height={0}
               src={props.iconSrc}
-              height={24}
-              width={24}
               alt={props.iconAlt || 'icon'}
-              className="ml-2"
+              className="ml-2 w-6 h-auto"
             />
           )}
           <FormControl>
@@ -64,6 +63,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               placeholder={props.placeholder}
               {...field}
               className="shad-input border-0"
+              autoComplete={props.name}
             />
           </FormControl>
         </div>
@@ -87,6 +87,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <FormControl>
           <PhoneInput
+            name="phoneInputWithCountrySelect"
             defaultCountry="VN"
             placeholder={props.placeholder}
             international
@@ -121,10 +122,10 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
         <div className="flex rounded-md border border-dark-500 bg-dark-400">
           <Image
             src="/assets/icons/calendar.svg"
-            height={24}
-            width={24}
+            height={0}
+            width={0}
             alt="user"
-            className="ml-2"
+            className="ml-2 w-6 h-auto"
           />
           <FormControl>
             <ReactDatePicker

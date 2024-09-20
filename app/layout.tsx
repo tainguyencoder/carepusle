@@ -12,8 +12,8 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: 'CarePulse',
-  description: 'A healthcare management system',
+  title: 'Pulse Health',
+  description: 'PulseHealth simplifies healthcare management with real-time patient monitoring, data integration, and personalized care tools for improved outcomes.',
 };
 
 export default function RootLayout({
