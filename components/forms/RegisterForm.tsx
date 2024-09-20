@@ -106,8 +106,8 @@ const RegisterForm = ({ user }: { user: User }) => {
         className="flex-1 space-y-12"
       >
         <section className="space-y-4">
-          <h1 className="header">Welcome 👋</h1>
-          <p className="text-dark-700">Let us know more about yourself.</p>
+          <h1 className="header">General Registration</h1>
+          <p className="text-dark-700">Describe your infomation</p>
         </section>
 
         {/* Personal Information */}
@@ -124,6 +124,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             placeholder="John Doe"
             iconSrc="/assets/icons/user.svg"
             iconAlt="user"
+            autoComplete="given-name"
           />
 
           {/* EMAIL & PHONE */}
@@ -136,6 +137,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               placeholder="johndoe@gmail.com"
               iconSrc="/assets/icons/email.svg"
               iconAlt="email"
+              autoComplete="email"
             />
 
             <CustomFormField
@@ -167,6 +169,7 @@ const RegisterForm = ({ user }: { user: User }) => {
                     className="flex h-11 gap-6 xl:justify-between"
                     onValueChange={field.onChange}
                     defaultValue={field.value}
+                    name="gender"
                   >
                     {GenderOptions.map((option, i) => (
                       <div key={option + i} className="radio-group">
@@ -193,6 +196,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               name="address"
               label="Address"
               placeholder="14 street, New york, NY - 5101"
+              autoComplete="address"
             />
 
             <CustomFormField
@@ -211,7 +215,8 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="emergencyContactName"
               label="Emergency contact name"
-              placeholder="Guardian's name"
+              placeholder="Guardian name"
+              autoComplete="guard"
             />
 
             <CustomFormField
@@ -346,9 +351,18 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="identificationDocument"
             label="Scanned Copy of Identification Document"
             renderSkeleton={(field) => (
-              <FormControl>
-                <FileUploader files={field.value} onChange={field.onChange} />
-              </FormControl>
+              <div>
+                <Label htmlFor="identification-document">
+                  Scanned Copy of Identification Document
+                </Label>
+                <FormControl>
+                  <FileUploader
+                    id="identification-document" // Ensure this matches
+                    files={field.value}
+                    onChange={field.onChange}
+                  />
+                </FormControl>
+              </div>
             )}
           />
         </section>

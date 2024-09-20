@@ -33,6 +33,7 @@ interface CustomProps {
   name: string;
   label?: string;
   placeholder?: string;
+  autoComplete?: string;
   iconSrc?: string;
   iconAlt?: string;
   disabled?: boolean;
@@ -63,7 +64,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               placeholder={props.placeholder}
               {...field}
               className="shad-input border-0"
-              autoComplete={props.name}
+              autoComplete={props.autoComplete}
             />
           </FormControl>
         </div>
@@ -106,6 +107,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
           <div className="flex items-center gap-4">
             <Checkbox
               id={props.name}
+              name={props.name}
               checked={field.value}
               onCheckedChange={field.onChange}
             />
@@ -144,7 +146,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
     case FormFieldType.SELECT:
       return (
         <FormControl>
-          <Select onValueChange={field.onChange} defaultValue={field.value}>
+          <Select name={props.name} onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
               <SelectTrigger className="shad-select-trigger">
                 <SelectValue placeholder={props.placeholder} />

@@ -96,6 +96,7 @@ const PatientForm = () => {
           placeholder="Full Name"
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
+          autoComplete='given-name'
         />
 
         <CustomFormField
@@ -106,6 +107,7 @@ const PatientForm = () => {
           placeholder="Email Address"
           iconSrc="/assets/icons/email.svg"
           iconAlt="email"
+          autoComplete='email'
         />
 
         <CustomFormField

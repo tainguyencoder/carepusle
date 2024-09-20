@@ -17,6 +17,13 @@ const Home = () => {
       />
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">
+        <Image
+            src="/assets/icons/logo-full.webp"
+            height={1000}
+            width={1000}
+            alt="patient"
+            className="mb-12 h-10 w-fit"
+          />
           <PatientForm />
 
           <div className="text-14-regular mt-20 flex justify-between">
