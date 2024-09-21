@@ -8,8 +8,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { Form, FormControl } from '@/components/ui/form';
-import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 import { SelectItem } from '@/components/ui/select';
 import {
   Doctors,
@@ -175,9 +175,12 @@ const RegisterForm = ({ user }: { user: User }) => {
                       <div key={option + i} className="radio-group">
                         <RadioGroupItem
                           value={option.toLowerCase()}
-                          id={option}
+                          id={`gender-${option}`}
                         />
-                        <Label htmlFor={option} className="cursor-pointer">
+                        <Label
+                          htmlFor={`gender-${option}`}
+                          className="cursor-pointer"
+                        >
                           {option}
                         </Label>
                       </div>
@@ -352,15 +355,8 @@ const RegisterForm = ({ user }: { user: User }) => {
             label="Scanned Copy of Identification Document"
             renderSkeleton={(field) => (
               <div>
-                <Label htmlFor="identification-document">
-                  Scanned Copy of Identification Document
-                </Label>
                 <FormControl>
-                  <FileUploader
-                    id="identification-document" // Ensure this matches
-                    files={field.value}
-                    onChange={field.onChange}
-                  />
+                  <FileUploader files={field.value} onChange={field.onChange} />
                 </FormControl>
               </div>
             )}

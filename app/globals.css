@@ -226,6 +226,10 @@
     @apply bg-dark-400 border-dark-500 !important;
   }
 
+  .shad-radio-group {
+    @apply flex h-11 gap-6 xl:justify-between !important;
+  }
+
   .shad-dialog {
     @apply bg-dark-400 border-dark-500 !important;
   }

@@ -7,12 +7,11 @@ import { useDropzone } from 'react-dropzone';
 import { convertFileToUrl } from '@/lib/utils';
 
 type FileUploaderProps = {
-  id: string;  // Accept id prop
   files: File[] | undefined;
   onChange: (files: File[]) => void;
 };
 
-export const FileUploader = ({ id, files, onChange }: FileUploaderProps) => {
+export const FileUploader = ({ files, onChange }: FileUploaderProps) => {
   const onDrop = useCallback((acceptedFiles: File[]) => {
     onChange(acceptedFiles);
   }, [onChange]);
@@ -20,7 +19,7 @@ export const FileUploader = ({ id, files, onChange }: FileUploaderProps) => {
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
   return (
     <div {...getRootProps()} className="file-upload">
-      <input {...getInputProps()} id={id} />  {/* This should match the Label */}
+      <input {...getInputProps()}/>  {/* This should match the Label */}
       {files && files.length > 0 ? (
         <Image
           src={convertFileToUrl(files[0])}

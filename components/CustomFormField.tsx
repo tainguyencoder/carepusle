@@ -1,12 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { E164Number } from 'libphonenumber-js/core';
 import Image from 'next/image';
-import ReactDatePicker from 'react-datepicker';
 import { Control } from 'react-hook-form';
-import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
-import { Checkbox } from './ui/checkbox';
 import {
   FormControl,
   FormField,
@@ -15,6 +12,9 @@ import {
   FormMessage,
 } from './ui/form';
 import { Input } from './ui/input';
+import PhoneInput from 'react-phone-number-input';
+import ReactDatePicker from 'react-datepicker';
+import { Checkbox } from './ui/checkbox';
 import { Select, SelectContent, SelectTrigger, SelectValue } from './ui/select';
 import { Textarea } from './ui/textarea';
 
@@ -146,7 +146,11 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
     case FormFieldType.SELECT:
       return (
         <FormControl>
-          <Select name={props.name} onValueChange={field.onChange} defaultValue={field.value}>
+          <Select
+            name={props.name}
+            onValueChange={field.onChange}
+            defaultValue={field.value}
+          >
             <FormControl>
               <SelectTrigger className="shad-select-trigger">
                 <SelectValue placeholder={props.placeholder} />
@@ -189,3 +193,4 @@ const CustomFormField = (props: CustomProps) => {
 };
 
 export default CustomFormField;
+
